@@ -40,7 +40,7 @@ apt-get -y --force-yes install python2.6 python2.7 python3.3 python3.4 python3.5
 [ ! -d #{$virtualenv} ] && su -c "virtualenv -p $(which python3) #{$virtualenv}" - vagrant
 
 su -c "cd #{$directory} && #{$virtualenv}/bin/pip install -e .[all]" - vagrant
-su -c "cd #{$directory} && #{$virtualenv}/bin/pip install tox pytest hypothesis sphinx" - vagrant
+su -c "cd #{$directory} && #{$virtualenv}/bin/pip install tox pytest hypothesis sphinx wheel" - vagrant
 SCRIPT
 
 Vagrant.configure("2") do |config|

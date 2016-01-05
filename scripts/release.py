@@ -71,6 +71,7 @@ def main():
     run('git', 'tag', '-am', 'Version {}'.format(version), tag).wait()
     set_version(version)
     run(sys.executable, 'setup.py', 'sdist', 'upload').wait()
+    run(sys.executable, 'setup.py', 'bdist_wheel', 'upload').wait()
     set_version(increment_version(version) + '-dev')
 
 

@@ -73,7 +73,7 @@ extras_require['all'] = sum(extras_require.values(), [])
 setup(
     name='Flask-Generic-Views',
     version=version,
-    url='http://github.com/waypasteleven/flask-extras',
+    url='http://github.com/artisanofcode/flask-generic-views',
     license='BSD',
     author='Daniel Knell',
     author_email='contact@danielknell.co.uk',

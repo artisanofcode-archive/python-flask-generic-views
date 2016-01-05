@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block body %}
+<h1>{{ post.name }}</h1>
+<ul>
+  <li><a href="{{ url_for('edit', pk=post.id) }}">Edit</a></li>
+  <li><a href="{{ url_for('delete', pk=post.id) }}">Delete</a></li>
+</ul>
+<pre>{{ post.body }}</pre>
+{% endblock %}

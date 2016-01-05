@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block body %}
+<ul>
+{% for post in post_list %}
+  <li><a href="{{ url_for('show', pk=post.id)}}">{{ post.name }}</a></li>
+{% endfor %}
+</ul>
+
+{% if is_paginated %}
+<p> Pages:
+{% for page in pagination.iter_pages()  %}
+  {% if page %}
+    {% if page != pagination.page %}
+      <a href="{{ url_for('show', page=page) }}">{{ page }}</a>
+    {% else %}
+      <strong>{{ page }}</strong>
+    {% endif %}
+  {% else %}
+    <span>…</span>
+  {% endif %}
+{% endfor %}
+</p>
+{% endif %}
+{% endblock %}

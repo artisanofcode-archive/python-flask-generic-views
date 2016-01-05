@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block body %}
+<form method="POST" action="">
+    <h1>Delete {{ post.name }}?</h1>
+    <p>Are you sure you want to delete this post?</p>
+    <input type="submit" value="Delete"> <a href="{{ url_for('show', pk=post.id) }}">Cancel</a>
+</form>
+{% endblock %}

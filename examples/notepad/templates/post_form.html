@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block body %}
+<form method="POST" action="">
+    <h1>{% if post %}Edit{% else %}New{% endif %}</h1>
+    {{ form.csrf_token }}
+    <p>{{ form.name.label }}<br>{{ form.name() }}</p>
+    <p>{{ form.body.label }}<br>{{ form.body() }}</p>
+    <input type="submit" value="Save">
+</form>
+{% endblock %}

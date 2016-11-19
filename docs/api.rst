@@ -353,4 +353,4 @@ Helpers
    :members:
    :show-inheritance:
 
-.. _SQLAlchemy:: http://www.sqlalchemy.org/
+.. _SQLAlchemy: http://www.sqlalchemy.org/

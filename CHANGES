@@ -3,6 +3,15 @@ Change Log
 
 Here you can see the full list of changes.
 
+Version 0.1.1
+-------------
+
+Released on 2016-11-19
+
+- Fixing typos in tests and updating hypothesis
+- Fix bug in MultipleObjectMixin.get_page
+- Fix docs for sqlalchemy related classes on readthedocs 
+
 Version 0.1.0
 -------------
 

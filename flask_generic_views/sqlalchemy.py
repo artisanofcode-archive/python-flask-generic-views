@@ -20,7 +20,7 @@ from sqlalchemy.orm.exc import NoResultFound
 from werkzeug.local import LocalProxy
 from wtforms_sqlalchemy.orm import model_form
 
-from flask_generic_views._compat import text_type
+from flask_generic_views._compat import integer_types
 from flask_generic_views.core import (ContextMixin, FormMixin, MethodView,
                                       ProcessFormView, TemplateResponseMixin)
 
@@ -397,12 +397,16 @@ class MultipleObjectMixin(ContextMixin):
         page_arg = self.page_arg
         page = request.view_args.get(page_arg, request.args.get(page_arg, 1))
 
-        if text_type(page).isdigit() and int(page) >= 1:
+        try:
             page = int(page)
-        elif error_out:
-            abort(404)
-        else:
-            page = 1
+        except ValueError:
+            pass
+        finally:
+            if not isinstance(page, integer_types) or page < 1:
+                if error_out:
+                    abort(404)
+                else:
+                    page = 1
 
         return page
 

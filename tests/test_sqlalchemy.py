@@ -10,8 +10,7 @@ from sqlalchemy.schema import Column
 from werkzeug.exceptions import HTTPException
 
 from flask_generic_views import core, sqlalchemy
-from flask_generic_views._compat import (integer_types, iteritems, iterkeys,
-                                         string_types)
+from flask_generic_views._compat import integer_types, iteritems, iterkeys
 from tests.utils import ASCII, DIGITS, SLUG, nondigit
 
 try:
@@ -485,8 +484,12 @@ class TestMultipleObjectMixin(object):
             else:
                 expected = 1
 
-            if (isinstance(expected, string_types) and expected.isdigit()):
+            try:
                 expected = int(expected)
+            except ValueError:
+                pass
+
+            print(repr(expected))
 
             if error_out and (not isinstance(expected, integer_types) or
                               expected < 1):

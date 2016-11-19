@@ -15,7 +15,7 @@ format:
 lint:
 	flake8 $(SOURCES) --exclude=_compat.py
 
-ci:
+ci: lint
 	tox -- --hypothesis-profile=$(HYPOTHESIS_PROFILE)
 
 docs:

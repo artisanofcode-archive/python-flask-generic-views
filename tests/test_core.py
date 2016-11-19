@@ -89,7 +89,7 @@ class TestTemplateResponseMixin(object):
 
 class TestTemplateView(object):
 
-    @given(st.text(), st.dictionaries(st.text(ASCII), st.text()))
+    @given(st.dictionaries(st.text(ASCII), st.text()))
     @example({'foo': 'bar'})
     @example({})
     def test_get(self, kwargs):
@@ -181,7 +181,7 @@ class TestRedirectView(object):
                 else:
                     m.assert_called_once_with(url)
 
-            instance.get_redirect_url.asset_called_once_with(**kwargs)
+            instance.get_redirect_url.assert_called_once_with(**kwargs)
         else:
             with pytest.raises(HTTPException) as extinfo:
                 instance.dispatch_request(**kwargs)
@@ -282,7 +282,7 @@ class TestFormMixin(object):
         with patch.object(core, 'redirect') as m:
             assert instance.form_valid(None) == m.return_value
 
-            m.asset_called_once_with(instance.get_success_url.return_value)
+            m.assert_called_once_with(instance.get_success_url.return_value)
 
     def test_form_invalid(self):
         instance = core.FormMixin()

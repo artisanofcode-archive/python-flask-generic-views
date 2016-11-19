@@ -9,9 +9,9 @@
     :license: BSD, see LICENSE for more information.
 """
 
-__version__ = '0.1.1-dev'
-
 from flask_generic_views.core import (FormView, MethodView, RedirectView,
                                       TemplateView, View)
 
 __all__ = ('FormView', 'MethodView', 'RedirectView', 'TemplateView', 'View')
+
+__version__ = '0.1.1-dev'

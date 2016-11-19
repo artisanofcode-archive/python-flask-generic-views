@@ -2,11 +2,11 @@ import os
 
 import pytest
 from flask import Flask
-from hypothesis import Settings
+from hypothesis import settings
 
-Settings.register_profile('slow', Settings(max_examples=200))
-Settings.register_profile('fast', Settings(max_examples=20))
-Settings.load_profile(os.getenv(u'HYPOTHESIS_PROFILE', 'fast'))
+settings.register_profile('slow', settings(max_examples=200))
+settings.register_profile('fast', settings(max_examples=20))
+settings.load_profile(os.getenv(u'HYPOTHESIS_PROFILE', 'fast'))
 
 
 @pytest.fixture(autouse=True)
